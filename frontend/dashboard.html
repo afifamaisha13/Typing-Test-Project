@@ -1,29 +1,87 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Dashboard</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #1b356e, #3559d3);
+}
+
+/* Dashboard card */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Welcome text */
+.dashboard-card h2 {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Buttons */
+.dashboard-btn {
+    padding: 14px 26px;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Logout button */
+.logout-btn {
+    border-radius: 8px;
+}
+</style>
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="#">Typing Test</a>
-    <button class="btn btn-danger" onclick="logout()">Logout</button>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container justify-content-end">
+    <button class="btn btn-danger logout-btn" onclick="logout()">Logout</button>
   </div>
 </nav>
 
-<div class="container mt-5 text-center">
-  <h2>Welcome, <span id="username"></span></h2>
-  <div class="mt-4">
-    <a href="typing-test.html" class="btn btn-success btn-lg me-2">Start Typing Test</a>
-    <a href="history.html" class="btn btn-info btn-lg">View Score History</a>
-  </div>
-</div> 
+<div class="container mt-5">
+  <div class="dashboard-card text-center">
+    <h2>Welcome, <span id="username"></span></h2>
+    <p class="text-muted mt-2">Ready to test and improve your typing speed?</p>
 
+    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+      <a href="typing-test.html" class="btn btn-success dashboard-btn">
+        🚀 Start Typing Test
+      </a>
+      <a href="history.html" class="btn btn-info dashboard-btn text-white">
+        📊 View Score History
+      </a>
+    </div>
+  </div>
+</div>
 
 <script>
-document.getElementById("username").innerText = localStorage.getItem("username") || "User";
+document.getElementById("username").innerText =
+    localStorage.getItem("username") || "User";
 
 function logout() {
     localStorage.clear();
@@ -33,3 +91,4 @@ function logout() {
 
 </body>
 </html>
+

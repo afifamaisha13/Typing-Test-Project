@@ -1,12 +1,18 @@
 body {
     font-family: 'Arial', sans-serif;
-}
+   
+    }
+
 
 textarea:focus {
     outline: none;
     border-color: #0d6efd;
     box-shadow: 0 0 5px rgba(13,110,253,0.5);
 }
+
+.navbar {
+    background-color: #ff5733; /* Change this to your desired color */
+  }
 
 #text-to-type {
     font-size: 18px;

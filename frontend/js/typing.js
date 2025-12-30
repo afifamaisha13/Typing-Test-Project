@@ -1,5 +1,5 @@
 let startTime, timerStarted = false, timerInterval;
-const testDuration = 60; // 60 seconds
+let testDuration = 60; // 60 seconds
 
 // Paragraphs by difficulty
 const paragraphs = {
@@ -39,6 +39,9 @@ function selectParagraph() {
 function startTest() {
     selectParagraph();
 
+    // ✅ READ SELECTED TIME
+    testDuration = parseInt(document.getElementById("timeSelect").value);
+
     document.getElementById("user-input").value = "";
     document.getElementById("result").innerHTML = "";
     document.getElementById("user-input").disabled = false;
@@ -54,12 +57,14 @@ function startTest() {
     timerInterval = setInterval(() => {
         timeLeft--;
         document.getElementById("timer").innerText = `Time Left: ${timeLeft}s`;
+
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             finishTest();
         }
     }, 1000);
 }
+
 
 // Real-time error highlighting
 document.getElementById("user-input").addEventListener("input", function () {
